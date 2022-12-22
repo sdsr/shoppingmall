@@ -1,11 +1,7 @@
-package shoppingmall.example.core.Member;
+package shoppingmall.example.core.member;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import shoppingmall.example.core.member.Grade;
-import shoppingmall.example.core.member.Member;
-import shoppingmall.example.core.member.MemberService;
-import shoppingmall.example.core.member.MemberServiceImpl;
 
 public class MemberServiceTest {
 
