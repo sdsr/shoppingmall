@@ -1,5 +1,7 @@
 package shoppingmall.example.core.order;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import shoppingmall.example.core.discount.DiscountPolicy;
 import shoppingmall.example.core.discount.FixDiscountPolicy;
 import shoppingmall.example.core.discount.RateDiscountPolicy;
@@ -7,6 +9,7 @@ import shoppingmall.example.core.member.Member;
 import shoppingmall.example.core.member.MemberRepository;
 import shoppingmall.example.core.member.MemoryMemberRepository;
 
+@Component
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository; // = new MemoryMemberRepository();
@@ -14,7 +17,7 @@ public class OrderServiceImpl implements OrderService {
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
-
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
