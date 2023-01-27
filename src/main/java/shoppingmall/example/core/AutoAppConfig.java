@@ -1,8 +1,10 @@
 package shoppingmall.example.core;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
+import shoppingmall.example.core.member.MemoryMemberRepository;
 
 @Configuration
 @ComponentScan(
@@ -12,4 +14,8 @@ import org.springframework.context.annotation.FilterType;
 )
 public class AutoAppConfig {
 
+//    @Bean(name = "memoryMemberRepository")
+//    MemoryMemberRepository memberRepository() {
+//        return new MemoryMemberRepository();
+//    }
 }
