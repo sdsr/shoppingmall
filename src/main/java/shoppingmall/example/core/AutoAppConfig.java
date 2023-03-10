@@ -13,7 +13,6 @@ import shoppingmall.example.core.member.MemoryMemberRepository;
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class) //componentScan 에서 제외
 )
 public class AutoAppConfig {
-
 //    @Bean(name = "memoryMemberRepository")
 //    MemoryMemberRepository memberRepository() {
 //        return new MemoryMemberRepository();
