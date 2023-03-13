@@ -1,19 +1,23 @@
 package shoppingmall.example.core.order;
 
-import ch.qos.logback.core.joran.util.PropertySetter;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import shoppingmall.example.core.discount.DiscountPolicy;
-import shoppingmall.example.core.discount.FixDiscountPolicy;
-import shoppingmall.example.core.discount.RateDiscountPolicy;
 import shoppingmall.example.core.member.Member;
 import shoppingmall.example.core.member.MemberRepository;
-import shoppingmall.example.core.member.MemberService;
-import shoppingmall.example.core.member.MemoryMemberRepository;
-
-import java.util.Set;
 
 @Component
+@RequiredArgsConstructor
+// RequiredArgsConstructor가 자동으로 만들어줌
+//    @Autowired//생성자가 하나일때는 자동으로 Autowired
+//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//        System.out.println("memberRepository = " + memberRepository);
+//        System.out.println("discountPolicy = " + discountPolicy);
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
+
 public class OrderServiceImpl implements OrderService {
 
     private final MemberRepository memberRepository; // = new MemoryMemberRepository();
@@ -40,13 +44,7 @@ public class OrderServiceImpl implements OrderService {
 //    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
 //        this.discountPolicy = discountPolicy;
 //    }
-    @Autowired//생성자가 하나일때는 자동으로 Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        System.out.println("memberRepository = " + memberRepository);
-        System.out.println("discountPolicy = " + discountPolicy);
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
