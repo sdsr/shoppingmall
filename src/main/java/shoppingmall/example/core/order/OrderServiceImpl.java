@@ -2,13 +2,15 @@ package shoppingmall.example.core.order;
 
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import shoppingmall.example.core.annotation.MainDiscountPolicy;
 import shoppingmall.example.core.discount.DiscountPolicy;
 import shoppingmall.example.core.member.Member;
 import shoppingmall.example.core.member.MemberRepository;
 
 @Component
-@RequiredArgsConstructor
 // RequiredArgsConstructor가 자동으로 만들어줌
 //    @Autowired//생성자가 하나일때는 자동으로 Autowired
 //    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
@@ -23,7 +25,13 @@ public class OrderServiceImpl implements OrderService {
     private final MemberRepository memberRepository; // = new MemoryMemberRepository();
     private final DiscountPolicy discountPolicy;
 
-    //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
+//private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 //    @Autowired // 선택적으로 의존관계 주입(required = false)
 //    public void setMemberRepository(MemberRepository memberRepository) {

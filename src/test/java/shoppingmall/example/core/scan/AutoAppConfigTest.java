@@ -2,8 +2,11 @@ package shoppingmall.example.core.scan;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import shoppingmall.example.core.AutoAppConfig;
+import shoppingmall.example.core.discount.DiscountPolicy;
+import shoppingmall.example.core.discount.FixDiscountPolicy;
 import shoppingmall.example.core.member.MemberRepository;
 import shoppingmall.example.core.member.MemberService;
 import shoppingmall.example.core.order.OrderServiceImpl;
