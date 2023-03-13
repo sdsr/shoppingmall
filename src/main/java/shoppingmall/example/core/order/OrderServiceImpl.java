@@ -11,6 +11,8 @@ import shoppingmall.example.core.member.MemberRepository;
 import shoppingmall.example.core.member.MemberService;
 import shoppingmall.example.core.member.MemoryMemberRepository;
 
+import java.util.Set;
+
 @Component
 public class OrderServiceImpl implements OrderService {
 
@@ -29,6 +31,15 @@ public class OrderServiceImpl implements OrderService {
 //        this.discountPolicy = discountPolicy;
 //    }
 
+    //    @Autowired
+//    public void setMemberRepository(MemberRepository memberRepository) {
+//        this.memberRepository = memberRepository;
+//    }
+//
+//    @Autowired
+//    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+//        this.discountPolicy = discountPolicy;
+//    }
     @Autowired//생성자가 하나일때는 자동으로 Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         System.out.println("memberRepository = " + memberRepository);
